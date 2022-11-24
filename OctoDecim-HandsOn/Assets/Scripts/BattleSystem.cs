@@ -92,6 +92,10 @@ public class BattleSystem : MonoBehaviour
     {
         Debug.Log("Enemy is attacking");
 
+        actionText.gameObject.SetActive(false);
+        moveBtn.gameObject.SetActive(false);
+        attackBtn.gameObject.SetActive(false);
+
         yield return new WaitForSeconds(1f);
 
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
