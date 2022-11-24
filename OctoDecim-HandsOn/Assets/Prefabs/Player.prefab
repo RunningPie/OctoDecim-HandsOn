@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8071913766378184143}
   m_Layer: 0
   m_Name: PlayerMovePoint
-  m_TagString: Untagged
+  m_TagString: PlayerMovePoint
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5368879729445560227}
-  - component: {fileID: 5368879729445560226}
   - component: {fileID: 4631855231033813756}
   - component: {fileID: 7589907940030376752}
+  - component: {fileID: 6903831180710840129}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -67,22 +67,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5368879729445560226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5368879729445560224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6bfa34f2ca1ba4eaccb5eace19074e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: player_1
-  damage: 10
-  maxHP: 10
-  currentHP: 10
 --- !u!114 &4631855231033813756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +96,22 @@ MonoBehaviour:
   obstacle:
     serializedVersion: 2
     m_Bits: 128
-  anim: {fileID: 0}
+--- !u!114 &6903831180710840129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5368879729445560224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af18ff7665f78804f84ce9fc0113e2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Player
+  damage: 10
+  maxHP: 10
+  currentHP: 10
 --- !u!1 &5368879730835043978
 GameObject:
   m_ObjectHideFlags: 0

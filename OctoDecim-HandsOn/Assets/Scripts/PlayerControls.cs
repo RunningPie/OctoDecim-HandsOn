@@ -11,7 +11,7 @@ public class PlayerControls : MonoBehaviour
 
     public LayerMask obstacle;
 
-    public Animator anim;
+    // public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +40,13 @@ public class PlayerControls : MonoBehaviour
                     movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
                 }
             }
-
-            anim.SetBool("moving", false);
-        } else
-        {
-            anim.SetBool("moving", true);
         }
+
+        //     anim.SetBool("moving", false);
+        // } else
+        // {
+        //     anim.SetBool("moving", true);
+        // }
 
         
     }
