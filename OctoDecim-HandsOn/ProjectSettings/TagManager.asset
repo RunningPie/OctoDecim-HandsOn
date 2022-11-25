@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - PlayerMovePoint
+  - PlayerSprite
+  - totalEnergyBar
+  - currentEnergyBar
+  - ActionText
   layers:
   - Default
   - TransparentFX

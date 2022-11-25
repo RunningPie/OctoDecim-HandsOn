@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;   // UI Library
+using TMPro;        // Text Mesh Pro Library
 
 public class WaveSpawner : MonoBehaviour
 {
+    public TextMeshProUGUI actionText;
+
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
     [System.Serializable]
@@ -33,7 +37,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
-        waveCountDown = timeBetweenWaves;
+        waveCountDown = 0;
 
         if (spawnPoints.Length == 0)
         {
@@ -77,6 +81,7 @@ public class WaveSpawner : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Completed");
+        actionText.text = "Wave Completed";
 
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
@@ -112,6 +117,7 @@ public class WaveSpawner : MonoBehaviour
 
         // SPAWN WAVE
         Debug.Log("Spawning Wave: " + _wave.name);
+        actionText.text = "Spawning Wave: " + _wave.name;
         for (int i = 0; i < _wave.enemyCount; i++)
         {
             SpawnEnemy(_wave.enemy);

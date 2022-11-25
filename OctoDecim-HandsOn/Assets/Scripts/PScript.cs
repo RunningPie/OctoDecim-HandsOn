@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PScript : MonoBehaviour
@@ -10,6 +11,18 @@ public class PScript : MonoBehaviour
 
     public int maxHP;
     public int currentHP;
+
+    public float maxEnergy;
+    public float currentEnergy;
+
+    Image currentEnergyBar;
+    Image totalEnergyBar;
+
+    void Start()
+    {
+        currentEnergyBar = GameObject.FindGameObjectWithTag("currentEnergyBar").GetComponent<Image>();
+        totalEnergyBar = GameObject.FindGameObjectWithTag("totalEnergyBar").GetComponent<Image>();
+    }
 
     public bool TakeDamage(int dmg)
     {
@@ -22,6 +35,66 @@ public class PScript : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D _collision)
+    {
+        Debug.Log("Collision!");
+        GameObject enemy = _collision.gameObject;
+        if (enemy.CompareTag("Enemy"))
+        {
+            Debug.Log("Attack Enemy");
+            enemy.GetComponent<EScript>().TakeDamage(10);
+        }
+    }
+
+    public bool Attack()
+    {
+        if (currentEnergy <= 0)
+        {
+            currentEnergy = 0;
+        }
+        else
+        {
+            currentEnergy -= 1;
+        }
+        
+        Debug.Log(currentEnergy / maxEnergy);
+        currentEnergyBar.fillAmount = currentEnergy / maxEnergy;
+
+        Debug.Log(currentEnergy);
+        if (currentEnergy < 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public bool RecoverEnergy()
+    {
+        if (currentEnergy >= maxEnergy)
+        {
+            currentEnergy = maxEnergy;
+        }
+        else
+        {
+            currentEnergy += 1;
+        }
+        Debug.Log(currentEnergy / maxEnergy);
+        currentEnergyBar.fillAmount = currentEnergy / maxEnergy;
+
+        Debug.Log(currentEnergy);
+        if (currentEnergy <= 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 
